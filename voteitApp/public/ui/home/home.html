@@ -1,0 +1,57 @@
+<div class="col-md-12" ng-controller="HomeCtrl">
+<div class ="container" >
+<div class="jumbotron">
+ <h1>News Rater</h1> 
+</div>
+
+ <div ng-hide="showdiv">
+<button type="button" class="btn btn-info btn-block" ng-click="show()">Add News</button>
+</div>
+<div ng-show = "showdiv">
+<label  for="usr">Add News Title</label>
+      <input type="text" 
+        class="form-control"
+         id="title"
+        placeholder="News Title" 
+        name="title" 
+        ng-model="news.title" 
+        required =""/>
+ <label  for="usr">Add News Description</label>
+      <input type="text" 
+        class="form-control"
+         id="description"
+        placeholder="News Description" 
+        name="title" 
+        ng-model="news.description" 
+        required =""/>  
+
+ <div>
+<button type="button" class="btn btn-success btn-block" ng-click="save(news)">Save</button>
+<button type="button" class="btn btn-primary btn-block" ng-click="cancel()">Cancel</button>
+</div>  
+</div>
+<div ng-show = "table">
+<table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Action</th>
+        <th>Vote Count</th>
+      </tr>
+	</thead>
+	<tbody>
+      <tr ng-repeat = "data in newsfind">
+        <td>{{data.title}}</td>
+        <td>{{data.description}}</td>
+        <td><div class = "btn-group">
+        <button type="button" class="btn btn-primary btn-xs"  ng-click="up(data)"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+        <button type="button" class="btn btn-primary btn-xs" ng-click="down(data)"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+        <td><button type="button" class="btn btn-primary">Vote Count <span class="badge">{{data.voteCount}}</span></button></td>
+      </tr>
+     </tbody>
+</table>
+</div>
+
+</div>
+</div>
