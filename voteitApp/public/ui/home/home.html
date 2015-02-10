@@ -30,7 +30,7 @@
 <button type="button" class="btn btn-primary btn-block" ng-click="cancel()">Cancel</button>
 </div>  
 </div>
-<div ng-show = "table">
+
 <table class="table">
     <thead>
       <tr>
@@ -45,13 +45,13 @@
         <td>{{data.title}}</td>
         <td>{{data.description}}</td>
         <td><div class = "btn-group">
-        <button type="button" class="btn btn-primary btn-xs"  ng-click="up(data)"><span class="glyphicon glyphicon-thumbs-up"></span></button>
-        <button type="button" class="btn btn-primary btn-xs" ng-click="down(data)"><span class="glyphicon glyphicon-thumbs-down"></span></button>
-        <td><button type="button" class="btn btn-primary">Vote Count <span class="badge">{{data.voteCount}}</span></button></td>
+        <button type="button" class="btn btn-info btn-xs"  ng-click="up(data,newsfind)"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+        <button type="button" class="btn btn-info btn-xs" ng-click="down(data,newsfind)"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+        <td><span  ng-class="{'true':'btn btn-success btn-s','false':'btn btn-primary btn-s'}[data.voteCount > -1]">{{data.voteCount}}</span></td>
       </tr>
      </tbody>
 </table>
 </div>
 
-</div>
+
 </div>
